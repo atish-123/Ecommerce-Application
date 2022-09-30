@@ -1,4 +1,4 @@
-----------------------------Users----------------
+----------------------------Users---------------
 CREATE TABLE `ecommerce`.`users` (
   `userid` INT NOT NULL,
   `username` VARCHAR(200) NULL,
