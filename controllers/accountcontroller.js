@@ -24,3 +24,4 @@ exports.remove=async (req, res)=>{
         result=await dal.remove(req.params.id)
         res.send(result);
     };
+    
