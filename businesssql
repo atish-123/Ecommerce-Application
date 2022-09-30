@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ----------------------------Users---------------
 CREATE TABLE `ecommerce`.`users` (
   `userid` INT NOT NULL,
@@ -6,4 +7,5 @@ CREATE TABLE `ecommerce`.`users` (
   `contactnumber` VARCHAR(10) NULL,
   `email` VARCHAR(45) NOT NULL,
   `role` VARCHAR(100) NULL,
-  PRIMARY KEY (`userid`));
+=======
+--
