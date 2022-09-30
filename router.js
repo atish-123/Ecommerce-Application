@@ -90,7 +90,7 @@ module.exports=function(app){
       //.put(productController.productsupdate)   
       .get(productController.getById);
 
- /*  app.route('/api/shippers')
+ /* app.route('/api/shippers')
       .get(shipperController.getAll)
       .post(shipperController.insert);
 
