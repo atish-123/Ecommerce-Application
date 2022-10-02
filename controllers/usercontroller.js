@@ -1,28 +1,54 @@
 const { response } = require('express');
 
+const session=require('express-session');
 const dal=require('../models/users')
 
-exports.getAll= async function(req, res){  
-  let result=[];
-  result=await dal.getAll();
-  res.send(result); 
+exports.getAllUsers= async function(req, res){  
+  let result=[]; 
+  let session=req.session;
+  if(session.user){
+    result=await dal.getAllUsers();
+    res.send(result);
+  }else{
+    res.send("please login first");
+  }
+ // result=await dal.getAll();
+ // res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+exports.getAllUserById= async function(req, res){  
   let result=[];
-  result=await dal.getById(req.params.id);
-  res.send(result); 
+  let session=req.session;
+  if(session.user){
+     result=await dal.getAllUserById(req.params.id);
+     res.send(result);
+  }  else{
+    res.send("please login first");
+  }
 };
 
-exports.insert=async(req, res)=>{
+exports.insertUserById=async(req, res)=>{
   let result=[];
-  result=await dal.insert(req);
-  res.send(result);
+  let session = req.session;
+  if(session.user){
+    result=await dal.UserByinsert(req);
+    res.send(result);
+  }
+  else{
+    res.send("please login first");
+  }
+  
   };
 
-exports.remove=async (req, res)=>{
+exports.removeById=async (req, res)=>{
       let result=[];
-      result=await dal.remove(req.params.id)
+      let session=req.session;
+      if(session.user){
+      result=await dal.removeById(req.params.id)
       res.send(result);
+      }
+      else{
+        res.send("please login first");
+      }
 };
   
