@@ -119,6 +119,13 @@ module.exports=function(app){
 
 };
 
+//JWT
+
+app.route("/api/test/jwt").get(authController.verifyjwttoken);
+
+
+
+
 
 
 
