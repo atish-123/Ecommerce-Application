@@ -4,8 +4,14 @@ const dal=require('../models/customers')
 
 exports.getAll= async function(req, res){  
   let result=[];
-  result=await dal.getAll();
-  res.send(result); 
+  result=await dal.getAllCustomer();
+  if(result.error){
+      res.sender("../views/customer",result);
+  }
+  else{
+    res.sender("../views/customer",data);
+  }
+  //res.send(result); 
 };
 
 exports.getById= async function(req, res){  
