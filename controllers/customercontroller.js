@@ -14,6 +14,10 @@ exports.getAll= async function(req, res){
   //res.send(result); 
 };
 
+exports.customerPage = async(req,res)=>{
+  res.sender("../viewa/customer");
+};
+
 exports.getById= async function(req, res){  
   let result=[];
   result=await dal.getById(req.params.id);
