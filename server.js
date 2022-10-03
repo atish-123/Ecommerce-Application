@@ -1,5 +1,5 @@
 const express=require('express');
-const express=require('express-session');
+//const express=require('express-session');
 const routes=require('./router');
 //var path=require('path');
 
@@ -12,9 +12,9 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(express.json());
 
-app.set("view engine","ejs");
 
-var sessionMiddleware = expressionSession({
+
+/*var sessionMiddleware = expressionSession({
     secret:"product",
     saveUninitalized: true,
     cookie:{maxage: oneDay},
@@ -23,7 +23,7 @@ var sessionMiddleware = expressionSession({
 });
 app.use(sessionMiddleware);
 
-
+*/
 routes(app);
 
 app.listen(3000,()=>{
