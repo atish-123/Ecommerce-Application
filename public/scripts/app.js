@@ -9,6 +9,7 @@ var fetchData=()=>{
         success:(data)=>{
             console.log("data");
             let strData
+            }
 
 
         }
