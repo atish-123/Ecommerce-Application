@@ -7,7 +7,8 @@ var fetchData=()=>{
         datatype:"json",
         url:url,
         success:(data)=>{
-            
+            console.log("success")
+
         }
     })
 }
