@@ -5,5 +5,6 @@ var fetchData=()=>{
 
     $.ajax({
         datatype:"json",
+        url:url,
     })
 }
