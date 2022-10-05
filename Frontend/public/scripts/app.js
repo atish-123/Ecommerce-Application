@@ -25,3 +25,27 @@ var fetchData=()=>{
       });
       console.log("button is clicked....");
     }
+
+    var onLogin=()=>{
+        let email=document.getElementById("email").value;
+        console.log(email)
+        let password=document.getElementById("password").value;
+        let credential={};
+        credential.email=email;
+        credential.password=password;
+        let loginUrl="http://localhost:8000/api/users/login";
+        console.log("hello")
+        console.log(loginUrl)
+        $.ajax({
+            url: loginUrl,
+            type:"POST",
+            data:credential,
+            success: (data, status)=>{
+                console.log("on successfull login");
+                console.log(status);
+                console.log(data);
+                localStorage.setItem("receivedtoken",data);  //browsers cache memory
+            }
+        });
+    }
+    
