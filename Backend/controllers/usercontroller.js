@@ -1,6 +1,6 @@
 const { response } = require('express');
 
-const session=require('express-session');
+const expressSession=require('express-session');
 const dal=require('../models/users')
 
 exports.getAllUsers= async function(req, res){  
