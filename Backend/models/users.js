@@ -1,6 +1,6 @@
 //const sql=require('./db');
 
-import sql from './db.js'; //Restructure in class
+import sql from './db.js'; //Restructure in class and oops
 export default class users{
 
 getAll=function(){

@@ -3,7 +3,7 @@
 //const expressSession=require('express-session');
 //const dal=require('../models/users')
 
-import dal from '..models/users';// restructure in class
+import dal from '..models/users';// restructure in class and oops
 
 export class userscontroller{
 getAllUsers= async function(req, res){  
