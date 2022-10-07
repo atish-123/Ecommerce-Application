@@ -23,10 +23,6 @@ exports.remove=async (req, res)=>{
       let result=[];
       result=await dal.remove(req.params.id)
       res.send(result);
-};
-  
+}
 
-
-    
-
-
+}

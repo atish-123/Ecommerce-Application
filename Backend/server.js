@@ -1,8 +1,8 @@
 const express=require('express');
 const expressSession=require('express-session');
-//const routes=require('./router');
+const routes=require('./router');
 //var path=require('path');
-//const cors=require('cors');
+const cors=require('cors');
 
 
 const oneDay=1000 * 60 * 60 * 24;
@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(express.json());
 
-//app.use(cors());
+app.use(cors());
 
 
 var sessionMiddleware = expressSession({
@@ -27,7 +27,7 @@ var sessionMiddleware = expressSession({
 app.use(sessionMiddleware);
 
 
-//nroutes(app);
+routes(app);
 
 app.listen(3000,()=>{
 console.log("Server is listening on port 3000");
