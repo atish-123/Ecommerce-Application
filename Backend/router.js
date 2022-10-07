@@ -11,11 +11,11 @@ var supplierController=require('./controllers/suppliercontroller');
 var userController=require('./controllers/usercontroller');
 
 
-
+//HTTP request mapping is done using routing technique
 module.exports=function(app){
-     app.route('/api/accountss')
-       .get(accountController.getAll)  
-       .post(accountController.insert);
+   app.route('/api/accountss')
+      .get(accountController.getAll)  
+      .post(accountController.insert);
             
     app.route('/api/accounts/:id')
        .delete(accountController.remove)  
