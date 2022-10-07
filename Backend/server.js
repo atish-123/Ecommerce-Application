@@ -1,8 +1,14 @@
-const express=require('express');
-const expressSession=require('express-session');
-const routes=require('./router');
+//const express=require('express');
+//const expressSession=require('express-session');
+
+//const routes=require('./router');
 //var path=require('path');
-const cors=require('cors');
+//const cors=require('cors');
+
+// changing in class and restructure in class
+import express from 'express'
+
+
 
 
 const oneDay=1000 * 60 * 60 * 24;

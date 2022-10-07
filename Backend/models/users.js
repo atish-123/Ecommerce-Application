@@ -1,6 +1,9 @@
-const sql=require('./db');
+//const sql=require('./db');
 
-exports.getAll=function(){
+import sql from './db.js'; //Restructure in class
+export default class users{
+
+getAll=function(){
     return new Promise(resolve=>{
          let command="SELECT * FROM users";
          sql.query(command,(err, rows, fields)=>{
@@ -10,7 +13,7 @@ exports.getAll=function(){
  };
  
  
- exports.getById=function(id){
+ getById=function(id){
      return new Promise(resolve=>{
           let command="SELECT * FROM users  WHERE id="+id;
           sql.query(command,(err, rows, fields)=>{
@@ -21,7 +24,7 @@ exports.getAll=function(){
  
   
  
- exports.insert=function(req){
+ insert=function(req){
      return new Promise(resolve=>{
          let name=req.body.name;
          let location=req.body.location;
@@ -33,7 +36,7 @@ exports.getAll=function(){
  })
  }
  
- exports.remove=function(id){
+remove=function(id){
      return new Promise(resolve=>{
          let command="DELETE FROM users Where id="+id ;
          sql.query(command,(err, rows, fields)=>{
@@ -41,3 +44,4 @@ exports.getAll=function(){
          })
  })
  }
+};

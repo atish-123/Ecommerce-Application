@@ -1,9 +1,12 @@
-const { response } = require('express');
+//const { response } = require('express');
 
-const expressSession=require('express-session');
-const dal=require('../models/users')
+//const expressSession=require('express-session');
+//const dal=require('../models/users')
 
-exports.getAllUsers= async function(req, res){  
+import dal from '..models/users';// restructure in class
+
+export class userscontroller{
+getAllUsers= async function(req, res){  
   let result=[]; 
   let session=req.session;
   if(session.user){
@@ -16,7 +19,7 @@ exports.getAllUsers= async function(req, res){
  // res.send(result); 
 };
 
-exports.getAllUserById= async function(req, res){  
+getAllUserById= async function(req, res){  
   let result=[];
   let session=req.session;
   if(session.user){
@@ -27,7 +30,7 @@ exports.getAllUserById= async function(req, res){
   }
 };
 
-exports.insertUserById=async(req, res)=>{
+insertUserById=async(req, res)=>{
   let result=[];
   let session = req.session;
   if(session.user){
@@ -40,7 +43,7 @@ exports.insertUserById=async(req, res)=>{
   
   };
 
-exports.removeById=async (req, res)=>{
+removeById=async (req, res)=>{
       let result=[];
       let session=req.session;
       if(session.user){
@@ -50,5 +53,6 @@ exports.removeById=async (req, res)=>{
       else{
         res.send("please login first");
       }
+}
 };
   
