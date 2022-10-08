@@ -1,12 +1,7 @@
-//const express=require('express');
-//const expressSession=require('express-session');
-
-//const routes=require('./router');
-//var path=require('path');
-//const cors=require('cors');
-
-// changing in class and restructure in class and oops
 import express from 'express'
+import expressSession from 'express-session';
+import cors from 'cors';
+import router from './routes/product.router.js';
 
 
 
@@ -33,7 +28,7 @@ var sessionMiddleware = expressSession({
 app.use(sessionMiddleware);
 
 
-routes(app);
+router(app);
 
 app.listen(3000,()=>{
 console.log("Server is listening on port 3000");

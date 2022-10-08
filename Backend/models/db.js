@@ -1,5 +1,7 @@
 //database connectivity
-const mysql=require('mysql');
+//const mysql=require('mysql');
+
+import mysql from "mysql";// changes in class
 
 //define connection string
 const conUri=({

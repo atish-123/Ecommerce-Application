@@ -1,28 +1,43 @@
-const { response } = require('express');
+//const { response } = require('express');
+//const dal=require('../models/products')
 
-const dal=require('../models/products')
+//constructor  Dependency injection
+import product from '../models/product.js';
 
-exports.getAll= async function(req, res){  
+export default class ProductController{
+  
+  constructor(mgr){
+    this.productmanager=mgr;
+  }
+
+getAll= async function(req, res){  
   let result=[];
-  result=await dal.getAll();
+  result=await this.productmanager.getAll();
   res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+getById= async function(req, res){  
   let result=[];
-  result=await dal.getById(req.params.id);
+  result=await this.productmanager.getById(id);
   res.send(result); 
 };
 
-exports.insert=async(req, res)=>{
+post=async(req, res)=>{
   let result=[];
-  result=await dal.insert(req);
+  result=await this.productmanager.insert(req);
+  console.log(result);
   res.send(result);
   };
 
-exports.remove=async (req, res)=>{
+put=async(id,product)=>{
       let result=[];
-      result=await dal.remove(req.params.id)
+      result=await this.productmanager.update(id,product)
       res.send(result);
 };
-  
+delete=async(id)=>{
+  let result=[];
+  result=await this.productmanager.remove(id);
+  res.send(id);
+}
+ 
+}

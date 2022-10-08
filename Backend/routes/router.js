@@ -1,4 +1,4 @@
-var accountController=require('./controllers/accountcontroller');
+/*var accountController=require('./controllers/accountcontroller');
 var categoryController=require('./controllers/categorycontroller');
 var customerController=require('./controllers/customercontroller');
 var deliveryController=require('./controllers/deliverycontroller');
@@ -90,14 +90,14 @@ module.exports=function(app){
       //.put(productController.productsupdate)   
       .get(productController.getById);
 
- /* app.route('/api/shippers')
+ app.route('/api/shippers')
       .get(shipperController.getAll)
       .post(shipperController.insert);
 
    app.route('/api/shippers/:id')
       .delete(shipperController.remove)  
       .put(shipperController.shippersupdate)   
-      .get(shipperController.getById);*/
+      .get(shipperController.getById);
 
    app.route('/api/suppliers')
       .get(supplierController.getAll)
@@ -118,6 +118,7 @@ module.exports=function(app){
       .get(userController.getById);
 
 };
+*/
 
 //JWT
 
