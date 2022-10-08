@@ -1,0 +1,20 @@
+CREATE DEFINER =`root` @`localhost` PROCEDURE `FundsTransfer` (
+    amount float,
+    accountto varchar(50),
+    accountfrom varchar(50),
+    timestamp DATETIME
+) 
+BEGIN
+declare exit handler for sqlexception begin rollback;
+END;
+start transaction;
+insert into transactions(toaccount,fromaccount,amount,createdat)
+values(accountto, accountfrom, amount, timestamp);
+update accounts
+set balance=balance-amount
+where accountnumber=accountfrom;
+update accounts
+set balance = balance+amount
+where accountnumber = accountto;
+commit;
+END;
