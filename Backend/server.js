@@ -3,6 +3,8 @@ import expressSession from 'express-session';
 import cors from 'cors';
 import router from './routes/product.router.js';
 
+import router from './routes/user.router.js';
+
 
 
 

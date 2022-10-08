@@ -5,54 +5,40 @@
 
 import dal from '..models/users';// restructure in class and oops
 
-export class userscontroller{
-getAllUsers= async function(req, res){  
-  let result=[]; 
-  let session=req.session;
-  if(session.user){
-    result=await dal.getAllUsers();
-    res.send(result);
-  }else{
-    res.send("please login first");
-  }
- // result=await dal.getAll();
- // res.send(result); 
-};
+export default class UserController {
 
-getAllUserById= async function(req, res){  
-  let result=[];
-  let session=req.session;
-  if(session.user){
-     result=await dal.getAllUserById(req.params.id);
-     res.send(result);
-  }  else{
-    res.send("please login first");
-  }
-};
+  getAllUsers = async (req, res) => {
 
-insertUserById=async(req, res)=>{
-  let result=[];
-  let session = req.session;
-  if(session.user){
-    result=await dal.UserByinsert(req);
-    res.send(result);
-  }
-  else{
-    res.send("please login first");
-  }
-  
+    let result = await this.repoManager.getAll();
+    // result=await dal.getAll();
+    // res.send(result); 
   };
 
-removeById=async (req, res)=>{
-      let result=[];
-      let session=req.session;
-      if(session.user){
-      result=await dal.removeById(req.params.id)
-      res.send(result);
-      }
-      else{
-        res.send("please login first");
-      }
-}
+  getById = async (req, res) => {
+    let result = [];
+    result = await this.repoManager.getAll();
+    res.send(result);
+  };
+
+
+  insert = async (req, res) => {
+    let result = [];
+    result=await this.repoManager.insert(req);
+    res.send(result);
+
+
+  };
+
+
+  update =async (req,res)=>{
+    let result=[];
+    result=await this.repoManager.update(req);
+    res.send(result);
+  }
+
+  remove= async(req,res) => {
+    let result = [];
+    result=await this.repoManager.remove(req.params.id);
+    res.send(result);
 };
-  
+}
