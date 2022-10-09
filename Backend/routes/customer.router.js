@@ -2,10 +2,11 @@
 
 
 import CustomerController from "../controllers/customercontroller.js";
-import CustomerManager from "../models/customers.js";
+
+import CustomerService from "../services/cache/customer.service.js";
 
 export  default function (app){
-    let mgr=new CustomerManager();
+    let mgr=new CustomerService();
 
     let customerController=new CustomerController(mgr);
 

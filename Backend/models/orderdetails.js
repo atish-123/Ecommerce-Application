@@ -1,50 +1,26 @@
-import sql from './db';
-
-export default class OrderdetailManager{
-    constructor(){
-
+export default class Ordersdetail {
+    //Parameterized constructor
+    constructor(
+      orderdetailid,
+      orderid,
+      productid,
+      quantity
+      
+    ) {
+      this.orderdetailid = orderdetailid;
+      this.orderid = orderid;
+      this.productid = productid;
+      this.quantity = quantity;
+      
+      
     }
-}
-
-getAll=function(){
-    return new Promise(resolve=>{
-         let command="SELECT * FROM orderdetails";
-         sql.query(command,(err, rows, fields)=>{
-             resolve(rows);
-         })
-     }) 
- };
- 
- 
- exports.getById=function(id){
-     return new Promise(resolve=>{
-          let command="SELECT * FROM orderdetails  WHERE id="+id;
-          sql.query(command,(err, rows, fields)=>{
-              resolve(rows);
-          })
-      }) 
-  };
- 
   
- 
- insert=function(req){
-     return new Promise(resolve=>{
-         let orderdetailid=req.orderdetailid;
-         let orderid=req.orderid;
-         let productid=req.productid;
-         let quantity=req.quantity;
-         let command=`INSERT INTO orderdetails(orderdetailid,orderid,productid,quantity) values(?,?,?,? );`
-         sql.query(command,[orderdetailid,orderid,productid,quantity],(err, rows, fields)=>{
-             resolve(rows);
-         })
- })
- }
- 
- remove=function(id){
-     return new Promise(resolve=>{
-         let command="DELETE FROM orderdetails Where id="+id ;
-         sql.query(command,(err, rows, fields)=>{
-             resolve(rows);
-         })
- })
- }
+    display() {
+      console.log(`orderdetailId= {this.orderdetailid}`);
+      
+      console.log(`Orderid= {this.orderid}`);
+      console.log(`Productid= {this.productid}`);
+      console.log(`Quantity= {this.quantity}`);
+      
+  }
+}

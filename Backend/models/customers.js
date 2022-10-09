@@ -1,62 +1,33 @@
-import sql from './db';
-
-//constructor dependency
-
-export default class CustomerManager{
-        constructor(){
-            
-        }
-
-
-getAll=function(){
-  return new Promise(resolve=>{
-       let command="SELECT * FROM customers";
-       sql.query(command,(err, rows, fields)=>{
-        if(err){
-            resolve({error:"Unable to fetch Customers."});
-        }else{
-           resolve({data: rows});
-        }
-       })
-   }) 
-};
-
-
-getById=function(id){
-   return new Promise(resolve=>{
-        let command="SELECT * FROM customers  WHERE id="+id;
-        sql.query(command,(err, rows, fields)=>{
-            resolve(rows);
-        })
-    }) 
-};
-
-
-
-insert=function(req){
-   return new Promise(resolve=>{
-       let customerid=req.customerid;
-       let firstname=req.firstname;
-       let lastname=req.lastname;
-       let email=req.email;
-       let contactnumber=req.contactnumber;
-       let address=req.address;
-       let accountid=req.accountid;
-       let userid=req.userid;
-       let command=`INSERT INTO customers(customerid,firstname,lastname,email,contactnumber,address,accountid,userid) values(?,?,?,?,?,?,?,?)`;
-
-       sql.query(command,[customerid,firstname,lastname,email,contactnumber,address,accountid,userid],(err, rows, fields)=>{
-           resolve(rows);
-       })
-})
-}
-
-remove=function(id){
-   return new Promise(resolve=>{
-       let command="DELETE FROM customers Where id="+id ;
-       sql.query(command,(err, rows, fields)=>{
-           resolve(rows);
-       })
-})
-}
-}
+export default class Customer {
+    //Parameterized constructor
+    constructor(
+      customerid,
+      firstname,
+      lastname,
+      email,
+      contactno,
+      address,
+      accountid,
+      userid
+    ) {
+      this.cuastomerid = customerid;
+      this.firstname = firstname;
+      this.lastname = lastname;
+      this.email=email;
+      this.contactno = contactno;
+      this.address = address;
+      this.accountid = accountid;
+      this.userid = userid;
+  
+    }
+  
+    display() {
+      console.log(`customerId= {this.customerid}`);
+      console.log(`First Name= {this.firstname}`);
+      console.log(`Last Name= {this.lastname}`);
+      console.log(`contactno= {this.contactno}`);
+      console.log(`address= {this.location}`);
+      console.log(`accountid= {this.accountid}`);
+      console.log(`Userid= {this.userid}`);
+    }
+  }
