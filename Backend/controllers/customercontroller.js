@@ -1,28 +1,34 @@
-const { response } = require('express');
+//Controller
+ import customer from '../models/customer.js';
+//constructor Dependency Injection
+  export default class CustomerController {
 
-const dal=require('../models/customers')
-
-
-
-exports.customerPage = async(req,res)=>{
-  res.send()
-
-exports.getById= async function(req, res){  
+    constructor(mgr){
+      this.repoManager = mgr;
+    }
+  
+  get=async(req,res)=>{
+    console.log("Fetching All Customers");
+    let allCustomers=await this.repoManager.getAll();
+    res.send(allCustomers.data);
+  }
+getById= async function(req, res){  
   let result=[];
-  result=await dal.getById(req.params.id);
-  res.send(result); 
+  result=await this.repoManager.getById(req.params.id);
+  res.send(allCustomers.data); 
 };
 
-exports.insert=async(req, res)=>{
+insert=async(req, res)=>{
   let result=[];
-  result=await dal.insert(req);
-  res.send(result);
+  result=await this.repoManager.insert(req);
+  res.send(result.data);
   };
 
-exports.remove=async (req, res)=>{
+remove=async (req, res)=>{
       let result=[];
-      result=await dal.remove(req.params.id)
-      res.send(result);
+      result=await this.repoManager.remove(req.params.id)
+      res.send(result.data);
 }
 
 }
+  

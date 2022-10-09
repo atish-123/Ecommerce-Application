@@ -1,16 +1,28 @@
-const sql = require('./db');
+import sql from './db';
 
-exports.getAll=function(){
+//constructor dependency
+
+export default class CustomerManager{
+        constructor(){
+            
+        }
+
+
+getAll=function(){
   return new Promise(resolve=>{
        let command="SELECT * FROM customers";
        sql.query(command,(err, rows, fields)=>{
-           resolve(rows);
+        if(err){
+            resolve({error:"Unable to fetch Customers."});
+        }else{
+           resolve({data: rows});
+        }
        })
    }) 
 };
 
 
-exports.getById=function(id){
+getById=function(id){
    return new Promise(resolve=>{
         let command="SELECT * FROM customers  WHERE id="+id;
         sql.query(command,(err, rows, fields)=>{
@@ -21,23 +33,30 @@ exports.getById=function(id){
 
 
 
-exports.insert=function(req){
+insert=function(req){
    return new Promise(resolve=>{
-       let name=req.body.name;
-       let location=req.body.location;
-       let email=req.body.email;
-       let command="INSERT INTO customers() values(" + name+"','"+ email ;
-       sql.query(command,(err, rows, fields)=>{
+       let customerid=req.customerid;
+       let firstname=req.firstname;
+       let lastname=req.lastname;
+       let email=req.email;
+       let contactnumber=req.contactnumber;
+       let address=req.address;
+       let accountid=req.accountid;
+       let userid=req.userid;
+       let command=`INSERT INTO customers(customerid,firstname,lastname,email,contactnumber,address,accountid,userid) values(?,?,?,?,?,?,?,?)`;
+
+       sql.query(command,[customerid,firstname,lastname,email,contactnumber,address,accountid,userid],(err, rows, fields)=>{
            resolve(rows);
        })
 })
 }
 
-exports.remove=function(id){
+remove=function(id){
    return new Promise(resolve=>{
        let command="DELETE FROM customers Where id="+id ;
        sql.query(command,(err, rows, fields)=>{
            resolve(rows);
        })
 })
+}
 }
