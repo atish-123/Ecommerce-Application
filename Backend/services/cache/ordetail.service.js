@@ -1,5 +1,5 @@
 import Orderdeetails from "../models/orders.js";
-import sql from './db';
+import sql from '..services/db/db.js';
 
 export default class OrderdetailService{
     constructor(){

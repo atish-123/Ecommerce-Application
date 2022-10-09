@@ -1,5 +1,5 @@
 import customers from "../models/customers.js";
-import sql from './db';
+import sql from '..services/db/db.js';
 
 //constructor dependency
 

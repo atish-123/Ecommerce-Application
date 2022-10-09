@@ -1,43 +1,16 @@
-const sql = require('./db');
-
-exports.getAll=function(){
-  return new Promise(resolve=>{
-       let command="SELECT * FROM orderdetails";
-       sql.query(command,(err, rows, fields)=>{
-           resolve(rows);
-       })
-   }) 
-};
-
-
-exports.getById=function(id){
-   return new Promise(resolve=>{
-        let command="SELECT * FROM deliveries  WHERE id="+id;
-        sql.query(command,(err, rows, fields)=>{
-            resolve(rows);
-        })
-    }) 
-};
-
-
-
-exports.insert=function(req){
-   return new Promise(resolve=>{
-       let name=req.body.name;
-       let location=req.body.location;
-       let email=req.body.email;
-       let command="INSERT INTO deliveries() values(" + name+"','"+ email ;
-       sql.query(command,(err, rows, fields)=>{
-           resolve(rows);
-       })
-})
-}
-
-exports.remove=function(id){
-   return new Promise(resolve=>{
-       let command="DELETE FROM deliveries Where id="+id ;
-       sql.query(command,(err, rows, fields)=>{
-           resolve(rows);
-       })
-})
+export default class Deliveries {
+    //Parameterized constructor
+    constructor(deliveriesid, status,orderid,shipperid) {
+      this.deliveriesid =deliveriesid;
+      this.status=status;
+      this.orderid = orderid;
+      this.shipperid=shipperid;
+    }    
+  
+    display() {
+      console.log(`deliveriesid= {this.deliveriesid}`);
+      console,log(`status={this.status}`);
+      console.log(`Order Id= {this.order_id}`);
+      console.log(`shipperid= {this.shipperid}`);
+    }
 }
