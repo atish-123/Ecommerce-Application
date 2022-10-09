@@ -1,28 +1,35 @@
-const { response } = require('express');
+export default class paymentController{
+  constructor(){
+    this.paymentManager=mgr;
+  }
 
-const dal=require('../models/payments')
+}
 
-exports.getAll= async function(req, res){  
+getAll= async function(req, res){ 
+  console.log("Fetching All Payment");
   let result=[];
-  result=await dal.getAll();
+  result=await this.paymentManager.getAll();
   res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+getById= async function(req, res){
+  console.log("Fetching All Payments By Id");  
   let result=[];
-  result=await dal.getById(req.params.id);
+  result=await this.paymentManager.getById(req.params.id);
   res.send(result); 
 };
 
-exports.insert=async(req, res)=>{
+insert=async(req, res)=>{
+  console.log("insert the payments");
   let result=[];
-  result=await dal.insert(req);
+  result=await this.paymentManager.insert(req);
   res.send(result);
   };
 
-exports.remove=async (req, res)=>{
+remove=async (req, res)=>{
+  console.log("remove the payments");
       let result=[];
-      result=await dal.remove(req.params.id)
+      result=await this.paymentManager.remove(req.params.id)
       res.send(result);
 };
   

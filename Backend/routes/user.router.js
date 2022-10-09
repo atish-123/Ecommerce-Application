@@ -1,5 +1,5 @@
 import AuthController from '../controllers/authcontrolleruser.js';
-import UserController from '../controllers/usercontroller.js';
+import userController from '../controllers/usercontroller.js';
 import Users from '../models/users.js';
 
 
@@ -7,7 +7,7 @@ import Users from '../models/users.js';
 
 export default function(app){
     let mgr=new Users();
-    let userController=new AuthControllerUser();
+    let userController=new userController();
 
 
     app.route('/api/users')

@@ -1,28 +1,37 @@
-const { response } = require('express');
+//controller
 
-const dal=require('../models/categories')
+export default class CategoryController{
 
-exports.getAll= async function(req, res){  
+  //constructor dependency injection
+  constructor(mgr){
+    this.categoryManager=mgr;
+  }
+}
+getAll= async function(req, res){  
+  console.log("Fetching All Categories");
   let result=[];
-  result=await dal.getAll();
+  result=await categoryManager.getAll();
   res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+getById= async function(req, res){  
+  console.log("Fetching all category By id");
   let result=[];
-  result=await dal.getById(req.params.id);
+  result=await this.categoryManager.getById(req.params.id);
   res.send(result); 
 };
 
-exports.insert=async(req, res)=>{
+insert=async(req, res)=>{
+  console.log("insert a category")
   let result=[];
-  result=await dal.insert(req);
+  result=await this.categoryManager.insert(req);
   res.send(result);
   };
 
-exports.remove=async (req, res)=>{
+remove=async (req, res)=>{
+      console.log("remove a categories");
       let result=[];
-      result=await dal.remove(req.params.id)
+      result=await this.categoryManager.remove(req.params.id)
       res.send(result);
 };
   

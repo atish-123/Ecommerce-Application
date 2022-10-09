@@ -4,7 +4,7 @@ import cors from 'cors';
 import productRoutes from './routes/product.router.js';
 
 import userRoutes from './routes/user.router.js';
-import customerRoutes from './routes/customer.routwr.js';
+import customerRoutes from './routes/customer.router.js';
 import orderRoutes from './routes/order.router.js';
 import orderdetailRoutes from './routes/orderdetail.router.js';
 

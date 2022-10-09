@@ -1,28 +1,32 @@
-const { response } = require('express');
+export default class deliveryController{
 
-const dal=require('../models/deliveries')
+      constructor(){
+        this.deliveryManager=mgr;
+      }
+}
 
-exports.getAll= async function(req, res){  
+getAll= async function(req, res){  
+  console.log("Fetching All deliveries");
   let result=[];
-  result=await dal.getAll();
+  result=await this.deliveryManager.getAll();
   res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+getById= async function(req, res){  
   let result=[];
-  result=await dal.getById(req.params.id);
+  result=await this.deliveryManager.getById(req.params.id);
   res.send(result); 
 };
 
-exports.insert=async(req, res)=>{
+insert=async(req, res)=>{
   let result=[];
-  result=await dal.insert(req);
+  result=await this.deliveryManager.insert(req);
   res.send(result);
   };
 
 exports.remove=async (req, res)=>{
       let result=[];
-      result=await dal.remove(req.params.id)
+      result=await this.deliveryManager.remove(req.params.id)
       res.send(result);
 };
   

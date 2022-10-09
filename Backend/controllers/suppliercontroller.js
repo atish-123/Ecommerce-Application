@@ -1,28 +1,32 @@
-const { response } = require('express');
-
-const dal=require('../models/suppliers')
-
-exports.getAll= async function(req, res){  
+export default class supplierController{
+  constructor(){
+    this.supplierManager=mgr;
+    }
+}
+getAll= async function(req, res){ 
+  console.log("Fetching all supplier"); 
   let result=[];
-  result=await dal.getAll();
+  result=await this.supplierManager.getAll();
   res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+getById= async function(req, res){ 
+  console.log("Fetching supplier By id"); 
   let result=[];
-  result=await dal.getById(req.params.id);
+  result=await this.supplierManager.getById(req.params.id);
   res.send(result); 
 };
 
-exports.insert=async(req, res)=>{
+insert=async(req, res)=>{
+  console.log("insert supplier");
   let result=[];
-  result=await dal.insert(req);
+  result=await this.supplierManager.insert(req);
   res.send(result);
   };
 
-exports.remove=async (req, res)=>{
+remove=async (req, res)=>{
+  console.log("remove supplier");
       let result=[];
-      result=await dal.remove(req.params.id)
+      result=await this.supplierManager.remove(req.params.id)
       res.send(result);
 };
-  

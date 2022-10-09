@@ -1,32 +1,29 @@
-const { response } = require('express');
-const dal=require('../models/accounts');
 
-exports.getAll= async function(req, res){  
+export default class AccountController{
+    constructor(mgr){
+        this.accountManager=mgr;
+    }
+}
+getAll= async function(req, res){  
+    console.log("Fetching All Accounts");
     let result=[];
-    result=await dal.getAll();
+    result=await this.accountManager.getAll();
     res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+getById= async function(req, res){ 
+    console.log("Fetching Accounts ByUser Id"); 
     let result=[];
-    result=await dal.getById(req.params.id);
+    result=await this.accountManager.getById(req.params.id);
     res.send(result); 
 };
 
-exports.insert=async(req, res)=>{
+insert=async(req, res)=>{
+    console.log("inser accounts");
     let result=[];
-    result=await dal.insert(req);
+    result=await accountManager.insert(req);
     res.send(result);
     };
 
-exports.remove=async (req, res)=>{
-        let result=[];
-        result=await dal.remove(req.params.id)
-        res.send(result);
-    };
-    exports.update=async (req, res)=>{
-        let result=[];
-        result=await dal.update(req.params.id)
-        res.send(result);
-    };
+
     
