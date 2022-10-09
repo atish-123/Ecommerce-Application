@@ -1,9 +1,9 @@
-import ProductManager from "../models/products.js";
-import ProductController from "../controllers/productcontroller.js";
 
+import ProductController from "../controllers/productcontroller.js";
+import ProductService from "../services/cache/product.services.js";
 
 export default function(app){
-    let mgr=new ProductManager();
+    let mgr=new ProductService();
 
     let productController=new ProductController(mgr);
       //constructor dependency injection

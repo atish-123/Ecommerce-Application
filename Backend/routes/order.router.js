@@ -1,8 +1,8 @@
 import OrderController from "../controllers/ordercontroller.js";
-import OrderManager from "../models/order.js";
+import OrderService from "../services/cache/order.services.js";
 
 export  default function (app){
-    let mgr=new OrderManager();
+    let mgr=new OrderService();
 
     let orderController=new OrderController(mgr);
 
