@@ -1,11 +1,12 @@
 import express from 'express'
 import expressSession from 'express-session';
 import cors from 'cors';
-import router from './routes/product.router.js';
+import productRoutes from './routes/product.router.js';
 
-import router from './routes/user.router.js';
-
-
+import userRoutes from './routes/user.router.js';
+import customerRoutes from './routes/customer.routwr.js';
+import orderRoutes from './routes/order.router.js';
+import orderdetailRoutes from './routes/orderdetail.router.js';
 
 
 const oneDay=1000 * 60 * 60 * 24;
@@ -30,7 +31,13 @@ var sessionMiddleware = expressSession({
 app.use(sessionMiddleware);
 
 
-router(app);
+productRoutes(app);
+userRoutes(app);
+customerRoutes(app);
+orderRoutes(app);
+orderdetailRoutes(app);
+
+
 
 app.listen(3000,()=>{
 console.log("Server is listening on port 3000");

@@ -1,6 +1,12 @@
-const sql = require('./db');
+import sql from  './db';
 
-exports.getAll=function(){
+export default class OrderManager{
+    constructor(){
+
+    }
+}
+
+getAll=function(){
     return new Promise(resolve=>{
          let command="SELECT * FROM orders";
          sql.query(command,(err, rows, fields)=>{
@@ -10,7 +16,7 @@ exports.getAll=function(){
  };
  
  
- exports.getById=function(id){
+ getById=function(id){
      return new Promise(resolve=>{
           let command="SELECT * FROM orders  WHERE id="+id;
           sql.query(command,(err, rows, fields)=>{
@@ -21,19 +27,20 @@ exports.getAll=function(){
  
   
  
- exports.insert=function(req){
+ insert=function(req){
      return new Promise(resolve=>{
-         let name=req.body.name;
-         let location=req.body.location;
-         let email=req.body.email;
-         let command="INSERT INTO orders() values(" + name+"','"+ email ;
-         sql.query(command,(err, rows, fields)=>{
+         let orderid=req.orderid;
+         let orderdateDATETIME=req.orderdateDATETIME;
+         let status=req.status;
+         let customerid=req.customerid;
+         let command=`INSERT INTO orders(orderid,orderdateDATETIME,status,customerid) values(?,?,?,? );`
+         sql.query(command,[orderid,orderdateDATETIME,status,customerid],(err, rows, fields)=>{
              resolve(rows);
          })
  })
  }
  
- exports.remove=function(id){
+ remove=function(id){
      return new Promise(resolve=>{
          let command="DELETE FROM orders Where id="+id ;
          sql.query(command,(err, rows, fields)=>{

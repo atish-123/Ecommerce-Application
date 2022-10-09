@@ -1,28 +1,34 @@
-const { response } = require('express');
 
-const dal=require('../models/orderdetails')
+import OrderdetailManager from '../models/orderdetails.js';
+import orderdetail from'../models/orderdetails.js';
+ 
+//constructor  Dependency injection
+export default class OrderdetailController{
+  constructor(){
+      this.orderdetailManager=mgr;
+  }
 
-exports.getAll= async function(req, res){  
+getAll= async function(req, res){  
   let result=[];
-  result=await dal.getAll();
+  result=await this.orderdetailManager.getAll();
   res.send(result); 
 };
 
-exports.getById= async function(req, res){  
+getById= async function(req, res){  
   let result=[];
-  result=await dal.getById(req.params.id);
+  result=await this.orderdetalManager.getById(req.params.id);
   res.send(result); 
 };
 
-exports.insert=async(req, res)=>{
+insert=async(req, res)=>{
   let result=[];
-  result=await dal.insert(req);
+  result=await this.orderdetailManager.insert(req);
   res.send(result);
   };
 
-exports.remove=async (req, res)=>{
+remove=async (req, res)=>{
       let result=[];
-      result=await dal.remove(req.params.id)
+      result=await this.OrderdetailManager.remove(req.params.id)
       res.send(result);
 };
-  
+} 
