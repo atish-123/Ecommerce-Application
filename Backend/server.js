@@ -7,7 +7,9 @@ import userRoutes from './routes/user.router.js';
 import customerRoutes from './routes/customer.router.js';
 import orderRoutes from './routes/order.router.js';
 import orderdetailRoutes from './routes/orderdetail.router.js';
-
+import productRoutes from './routes/product.router.js';
+import  deliveriesRoutes from './routes/deliveries.router.js';
+import categoriesRoutes from './routes/categories.router.js';
 
 const oneDay=1000 * 60 * 60 * 24;
 
@@ -36,6 +38,8 @@ userRoutes(app);
 customerRoutes(app);
 orderRoutes(app);
 orderdetailRoutes(app);
+deliveriesRoutes(app);
+categoriesRoutes(app);
 
 
 

@@ -1,4 +1,3 @@
-import AuthController from '../controllers/authcontrolleruser.js';
 import userController from '../controllers/usercontroller.js';
 import Users from '../models/users.js';
 
