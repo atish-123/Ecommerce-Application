@@ -1,4 +1,4 @@
-export default class Ordersdetail {
+export default class Ordersdetails {
     //Parameterized constructor
     constructor(
       orderdetailid,

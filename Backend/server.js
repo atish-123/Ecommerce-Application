@@ -6,7 +6,7 @@ import productRoutes from './routes/product.js';
 //import userRoutes from './routes/user.router.js';
 import customerRoutes from './routes/customer.js';
 //import orderRoutes from './routes/order.router.js';
-//import orderdetailRoutes from './routes/orderdetail.router.js';
+import orderdetailRoutes from './routes/orderdetail.router.js';
 
 //import  deliveriesRoutes from './routes/deliveries.router.js';
 //import categoriesRoutes from './routes/categories.router.js';
@@ -16,15 +16,13 @@ const oneDay=1000 * 60 * 60 * 24;
 
 const app=express();
 
-//app.use(express.urlencoded({extended:true}));
-
-//app.use(express.json());
-
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 app.use(cors());
 
 
 var sessionMiddleware = expressSession({
-    secret:"product",
+    secret:"ecommerce_secret",
     saveUninitalized: true,
     cookie:{maxage: oneDay},
     resave:false
@@ -37,7 +35,7 @@ productRoutes(app);
 //userRoutes(app);
 customerRoutes(app);
 //orderRoutes(app);
-//orderdetailRoutes(app);
+orderdetailRoutes(app);
 //deliveriesRoutes(app);
 //categoriesRoutes(app);
 paymentsRoutes(app);

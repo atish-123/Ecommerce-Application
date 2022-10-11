@@ -3,7 +3,7 @@
 //const expressSession=require('express-session');
 //const dal=require('../models/users')
 
-import user from '..models/users';// restructure in class and oops
+//import user from '..models/users';// restructure in class and oops
 
 export default class UserController {
           constructor(){

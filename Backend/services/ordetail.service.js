@@ -1,9 +1,9 @@
-import Orderdeetails from "../models/orders.js";
-import sql from '..services/db/db.js';
+import Orderdetail from "../models/orders.js";
+import sql from './db/db.js';
 
 export default class OrderdetailService{
     constructor(){
-        this.orderdetail=new Orderdeetails();
+        this.orderdetail=new Orderdetail();
 
     }
 }

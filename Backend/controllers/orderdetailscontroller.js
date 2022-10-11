@@ -1,9 +1,9 @@
 
-import OrderdetailManager from '../models/orderdetails.js';
-import orderdetail from'../models/orderdetails.js';
+//import OrderdetailManager from '../models/orderdetails.js';
+//import orderdetail from'../models/orderdetails.js';
  
 //constructor  Dependency injection
-export default class OrderdetailController{
+export default class OrderdetailsController{
   constructor(){
       this.orderdetailManager=mgr;
   }
