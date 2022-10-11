@@ -1,7 +1,7 @@
-import payments from '/models/payments.js';
-import sql from '/services/db/db.js';
+import payments from '../models/payments.js';
+import sql from './db/db.js';
 
-export default class paymentsService{
+export default class paymentService{
     constructor(){
         this.payments=new payments();
     }
@@ -9,7 +9,7 @@ export default class paymentsService{
 
 getAll=function(){
     return new Promise(resolve=>{
-         let command="SELECT * FROM paymentts";
+         let command=`SELECT * FROM ${this.payments.tablename}`;
          sql.query(command,(err, rows, fields)=>{
              resolve(rows);
          })

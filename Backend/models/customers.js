@@ -1,4 +1,4 @@
-export default class Customer {
+export default class Customers{
     //Parameterized constructor
     constructor(
       customerid,
@@ -10,7 +10,7 @@ export default class Customer {
       accountid,
       userid
     ) {
-      this.cuastomerid = customerid;
+      this.customerid = customerid;
       this.firstname = firstname;
       this.lastname = lastname;
       this.email=email;
@@ -18,7 +18,7 @@ export default class Customer {
       this.address = address;
       this.accountid = accountid;
       this.userid = userid;
-  
+      this.tablename="customers";
     }
   
     display() {

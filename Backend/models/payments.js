@@ -1,4 +1,4 @@
-export default class Deliveries {
+export default class Payments{
     //Parameterized constructor
     constructor(paymentid, paymentdateDATETIME,orderid,amount,paymentmode,transactionid) {
       this.paymentid =paymentid;
@@ -7,6 +7,8 @@ export default class Deliveries {
       this.amount=amount;
       this.paymentmode=paymentmode;
       this.transactionid=transactionid;
+
+      this.tablename="payments";
     }    
   
     display() {

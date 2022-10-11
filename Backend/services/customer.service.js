@@ -1,5 +1,5 @@
 import customers from "../models/customers.js";
-import sql from '..services/db/db.js';
+import sql from './db/db.js';
 
 //constructor dependency
 
@@ -12,7 +12,7 @@ export default class CustomerService{
 
 getAll=function(){
   return new Promise(resolve=>{
-       let command="SELECT * FROM customers";
+       let command=`SELECT * FROM ${this.tsblename.customers}`;
        sql.query(command,(err, rows, fields)=>{
         if(err){
             resolve({error:"Unable to fetch Customers."});
