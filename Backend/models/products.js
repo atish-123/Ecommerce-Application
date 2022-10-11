@@ -21,6 +21,7 @@ export default class Product {
       this.categoryid = categoryid;
       this.supplierid=supplierid;
       
+      this.tablename="products";
     }
   
     display() {

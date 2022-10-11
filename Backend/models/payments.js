@@ -1,43 +1,20 @@
-const sql=require('./db');
-
-exports.getAll=function(){
-    return new Promise(resolve=>{
-         let command="SELECT * FROM paymentts";
-         sql.query(command,(err, rows, fields)=>{
-             resolve(rows);
-         })
-     }) 
- };
- 
- 
- exports.getById=function(id){
-     return new Promise(resolve=>{
-          let command="SELECT * FROM payments  WHERE id="+id;
-          sql.query(command,(err, rows, fields)=>{
-              resolve(rows);
-          })
-      }) 
-  };
- 
+export default class Deliveries {
+    //Parameterized constructor
+    constructor(paymentid, paymentdateDATETIME,orderid,amount,paymentmode,transactionid) {
+      this.paymentid =paymentid;
+      this.paymentdateDATETIME=paymentdateDATETIME;
+      this.orderid = orderid;
+      this.amount=amount;
+      this.paymentmode=paymentmode;
+      this.transactionid=transactionid;
+    }    
   
- 
- exports.insert=function(req){
-     return new Promise(resolve=>{
-         let name=req.body.name;
-         let location=req.body.location;
-         let email=req.body.email;
-         let command="INSERT INTO payments() values(" + name+"','"+ email ;
-         sql.query(command,(err, rows, fields)=>{
-             resolve(rows);
-         })
- })
- }
- 
- exports.remove=function(id){
-     return new Promise(resolve=>{
-         let command="DELETE FROM payments Where id="+id ;
-         sql.query(command,(err, rows, fields)=>{
-             resolve(rows);
-         })
- })
- }
+    display() {
+      console.log(`paymentid= {this.paymentid}`);
+      console,log(`paymentdateDATETIME={this.paymentdateDATETIME}`);
+      console.log(`Order Id= {this.order_id}`);
+      console.log(`amount= {this.amount}`);
+      console.log(`paymentmode={this.paymentmode}`);
+      console.log(`transactionid={this.transactionid}`);
+    }
+}

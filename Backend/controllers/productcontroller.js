@@ -2,7 +2,7 @@
 //const dal=require('../models/products')
 
 //constructor  Dependency injection
-import product from '../models/product.js';
+//import Product from '../models/products.js';
 
 export default class ProductController{
   

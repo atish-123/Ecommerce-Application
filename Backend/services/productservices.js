@@ -1,5 +1,5 @@
-import Product from '../model/product.js';
-import sql from './services/db/db.js';
+import Product from '../models/products.js';
+import sql from './db/db.js';
 
 export default class ProductService{
     constructor(){
@@ -9,7 +9,7 @@ export default class ProductService{
 
 getAll=function(){
     return new Promise(resolve=>{
-         let command="SELECT * FROM products";
+         let command=`SELECT * FROM ${this.product.tablename}`;
          sql.query(command,(err, rows, fields)=>{
              resolve(rows);
          })

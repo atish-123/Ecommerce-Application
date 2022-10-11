@@ -1,4 +1,4 @@
-import mysql from "mysql";// changes in class
+import  mysql from "mysql";// changes in class
 
 //define connection string
 const conUri=({
@@ -17,4 +17,4 @@ con.connect((err)=>{
         console.log(err);
     }
 });
-module.exports=con;
+export default con;

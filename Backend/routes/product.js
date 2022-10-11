@@ -1,6 +1,6 @@
 
 import ProductController from "../controllers/productcontroller.js";
-import ProductService from "../services/cache/product.services.js";
+import ProductService from "../services/productservices.js";
 
 export default function(app){
     let mgr=new ProductService();

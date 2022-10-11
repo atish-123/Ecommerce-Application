@@ -1,4 +1,13 @@
-const sql = require('./db');
+import Deliveries from '../model/deliveries.js';
+import sql from './services/db/db.js';
+
+
+export default class DeliveriesService{
+    constructor(){
+      
+        this.Deliveries=new Deliveries();
+    }
+
 
 getAll=function(){
   return new Promise(resolve=>{
@@ -41,4 +50,5 @@ remove=function(id){
            resolve(rows);
        })
 })
+}
 }
