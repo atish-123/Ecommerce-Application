@@ -1,5 +1,5 @@
 import Orders from "../models/orders.js";
-import sql from  '.services/db/db.js';
+import sql from  './db/db.js';
 
 export default class OrderService{
     constructor(){

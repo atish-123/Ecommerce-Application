@@ -1,15 +1,15 @@
-import OrderdetailController from "../controllers/Orderdetailcontroller.js";
-import OrderdetailServices from "../services/cache/orderdetail.services.js";
+import OrderdetailsController from "../controllers/orderdetailscontroller.js";
+import OrderdetailServices from "../services/orderdetailservice.js";
 
 export  default function (app){
     let mgr=new OrderdetailServices();
 
-    let customerController=new OrderdetailController(mgr);
+    let orderdetailsController=new orderdetailsController(mgr);
 
 
-    app.get("api/orderdetails",orderdetailController.getAll);
-    app.get("/api/orderdetails/id",orderdetailController.getById);
-    app.post("/api/orderdetailss",orderdetailController.post);
+    app.get("api/orderdetails",orderdetailsController.getAll);
+    app.get("/api/orderdetails/id",orderdetailsController.getById);
+    app.post("/api/orderdetailss",orderdetailsController.post);
     //app.put("/api/orderdetails",orderdetailController.put);
-    app.delete("/api/orderdetailss",orderdetailController.delete);
+    app.delete("/api/orderdetailss",orderdetailsController.delete);
 }

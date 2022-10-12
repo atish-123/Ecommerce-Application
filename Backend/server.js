@@ -5,11 +5,11 @@ import productRoutes from './routes/product.js';
 
 //import userRoutes from './routes/user.router.js';
 import customerRoutes from './routes/customer.js';
-//import orderRoutes from './routes/order.router.js';
-import orderdetailRoutes from './routes/orderdetail.router.js';
+import orderRoutes from './routes/order.js';
+import orderdetailRoutes from './routes/orderdetail.js';
 
-//import  deliveriesRoutes from './routes/deliveries.router.js';
-//import categoriesRoutes from './routes/categories.router.js';
+import  deliveriesRoutes from './routes/deliveries.js';
+import categoriesRoutes from './routes/categories.js';
 import paymentsRoutes from  './routes/payment.js';
 const oneDay=1000 * 60 * 60 * 24;
 
@@ -34,10 +34,10 @@ app.use(sessionMiddleware);
 productRoutes(app);
 //userRoutes(app);
 customerRoutes(app);
-//orderRoutes(app);
+orderRoutes(app);
 orderdetailRoutes(app);
-//deliveriesRoutes(app);
-//categoriesRoutes(app);
+deliveriesRoutes(app);
+categoriesRoutes(app);
 paymentsRoutes(app);
 
 

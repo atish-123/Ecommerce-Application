@@ -1,9 +1,9 @@
 
 
-import order from '../models/order.js';
+//import order from '../models/order.js';
 
 //constructor  Dependency injection
-export default class orderController{
+export default class OrderController{
 
   condtructor(){
     this.ordermanager=mgr;

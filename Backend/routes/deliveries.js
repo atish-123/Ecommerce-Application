@@ -1,6 +1,6 @@
 import DeliveryController from "../controllers/deliverycontroller.js";
 
-import DeliveryService from "../services/cache/deliveries.service.js";
+import DeliveryService from "../services/deliveries.service.js";
 
 export  default function (app){
     let mgr=new DeliveryService();
