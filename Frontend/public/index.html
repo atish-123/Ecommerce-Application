@@ -4,14 +4,28 @@
         <title>Home Page</title>
     </head>
     <body>
-        <h1>Transflower Store</h1>
+        <h1>Welcome To Store </h1>
         <hr/>
         <a href="index.html">Home</a> | <a href="list.html">Catalog</a>|<a href="login.html">SignIn</a>
         <hr/>
         <div>
+            
             <img src="wallhaven-389[834] - Copy (2).jpg" width="100" height="100"/>
 
             <h3>ECommerce Web Site for sale beautiful flowers....</h3>
+             <button onclick="CustomerLogin()">CustomerLogin</button>
+
         </div>
+        <script>
+            let CustomerLogin=() => {
+                location.replace("/customerlogin.html");
+
+            };
+            let shipperlogin =()=>{
+                location.replace("/sellerLogin.html");
+
+            };
+        </script>
+
     </body>
 </html>
