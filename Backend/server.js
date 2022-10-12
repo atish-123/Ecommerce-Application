@@ -11,6 +11,7 @@ import orderdetailRoutes from './routes/orderdetail.js';
 import  deliveriesRoutes from './routes/deliveries.js';
 import categoriesRoutes from './routes/categories.js';
 import paymentsRoutes from  './routes/payment.js';
+import cartRoutes from './routes/cart.js';
 const oneDay=1000 * 60 * 60 * 24;
 
 
@@ -30,7 +31,7 @@ var sessionMiddleware = expressSession({
 });
 app.use(sessionMiddleware);
 
-
+cartRoutes(app);
 productRoutes(app);
 //userRoutes(app);
 customerRoutes(app);

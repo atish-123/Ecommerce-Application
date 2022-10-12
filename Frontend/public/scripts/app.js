@@ -33,7 +33,7 @@ var fetchData=()=>{
         let credential={};
         credential.email=email;
         credential.password=password;
-        let loginUrl="http://localhost:8000/api/users/login";
+        let loginUrl="http://localhost:3000/api/users/login";
         console.log("hello")
         console.log(loginUrl)
         $.ajax({
